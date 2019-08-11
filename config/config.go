@@ -23,6 +23,7 @@ func GetConfig() (JiraConfig, error) {
 	viper.AddConfigPath(fmt.Sprintf("$HOME/.jiracmd/%s", configName))
 	viper.AddConfigPath(".")
 	viper.AddConfigPath("../")
+	viper.AddConfigPath("../test_data/")
 
 	if flag.Lookup("testing.v") != nil {
 		viper.AddConfigPath("../../test_data/")
