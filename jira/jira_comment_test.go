@@ -14,7 +14,7 @@ func TestCreateBodyMap(t *testing.T) {
 	}
 }
 
-func TestNewJiraComment(t *testing.T) {
+func TestSaveComment(t *testing.T) {
 	body := "test"
 	ticket := "1234"
 	myConfig := config.JiraConfig{
@@ -23,7 +23,7 @@ func TestNewJiraComment(t *testing.T) {
 		JiraUserToken: "token",
 	}
 
-	jiraComment := NewJiraComment(body, ticket, myConfig)
+	jiraComment := SaveComment(body, ticket, myConfig)
 	if myConfig.JiraURL != "https://url.com" {
 		t.Errorf("JiraURL should have been \"https://url.com\", got: %v", jiraComment.Config.JiraURL)
 	}
