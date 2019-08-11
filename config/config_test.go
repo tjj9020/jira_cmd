@@ -6,6 +6,7 @@ import (
 )
 
 func TestGetConfig(t *testing.T) {
+	os.Setenv("JIRA_USER_TOKEN", "1")
 	myConfig, err := GetConfig()
 	if err != nil {
 		t.Errorf("Could not load configuration file: %v", err)
