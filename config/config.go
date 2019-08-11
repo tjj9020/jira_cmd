@@ -2,6 +2,7 @@ package config
 
 import (
 	"errors"
+	"fmt"
 	"os"
 
 	"github.com/spf13/viper"
@@ -17,7 +18,7 @@ func GetConfig() (JiraConfig, error) {
 	var config JiraConfig
 
 	configName := "jiracmd"
-	viper.SetConfigName(configName)
+	viper.SetConfigName(fmt.Sprintf("%s.yml", configName))
 	viper.AddConfigPath("$HOME/.jiracmd/")
 	viper.AddConfigPath(".")
 
