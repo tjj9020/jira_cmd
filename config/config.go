@@ -19,7 +19,7 @@ func GetConfig() (JiraConfig, error) {
 
 	configName := "jiracmd"
 	viper.SetConfigName(configName)
-	viper.AddConfigPath(fmt.Sprintf("$HOME/.jiracmd/%s.yml", configName))
+	viper.AddConfigPath(fmt.Sprintf("$HOME/.jiracmd/", configName))
 	viper.AddConfigPath(".")
 
 	err := viper.ReadInConfig()
