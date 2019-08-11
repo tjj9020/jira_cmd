@@ -16,7 +16,7 @@ type JiraComment struct {
 	Config config.JiraConfig
 }
 
-func NewJiraComment(body string, ticket string, config config.JiraConfig) JiraComment {
+func SaveComment(body string, ticket string, config config.JiraConfig) JiraComment {
 	return JiraComment{
 		Body:   body,
 		Ticket: ticket,

@@ -15,7 +15,7 @@ func main() {
 
 	comment := "test comment"
 	ticket := "PBT-15163"
-	jiraComment := jira.NewJiraComment(comment, ticket, config)
+	jiraComment := jira.SaveComment(comment, ticket, config)
 	response, err := jiraComment.AddComment()
 	if err != nil {
 		fmt.Printf("There was an error, %v", err)
