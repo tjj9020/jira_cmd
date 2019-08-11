@@ -2,7 +2,6 @@ package config
 
 import (
 	"errors"
-	"flag"
 	"fmt"
 	"os"
 
@@ -22,12 +21,7 @@ func GetConfig() (JiraConfig, error) {
 	viper.SetConfigName(configName)
 	viper.AddConfigPath(fmt.Sprintf("$HOME/.jiracmd/%s", configName))
 	viper.AddConfigPath(".")
-	viper.AddConfigPath("../")
 	viper.AddConfigPath("../test_data/")
-
-	if flag.Lookup("testing.v") != nil {
-		viper.AddConfigPath("../../test_data/")
-	}
 
 	err := viper.ReadInConfig()
 	if err != nil {
