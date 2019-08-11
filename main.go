@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/tjj9020/jira_cmd/config"
+	"github.com/tjj9020/jira_cmd/jira"
 )
 
 func main() {
@@ -11,8 +12,14 @@ func main() {
 	if err != nil {
 		fmt.Println("Could not get config")
 	}
-	fmt.Printf("JiraUrl: %v, JiraUser: %v, JiraToken: %v", config.JiraURL, config.JiraUserName, config.JiraUserToken)
+
+	comment := "test comment"
+	ticket := "PBT-15163"
+	jiraComment := jira.NewJiraComment(comment, ticket, config)
+	response, err := jiraComment.AddComment()
 	if err != nil {
-		fmt.Println(err)
+		fmt.Printf("There was an error, %v", err)
 	}
+	fmt.Println(response)
+
 }

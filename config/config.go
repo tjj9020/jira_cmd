@@ -20,6 +20,7 @@ func GetConfig() (JiraConfig, error) {
 	viper.SetConfigName(configName)
 	viper.AddConfigPath("$HOME/.jiracmd/")
 	viper.AddConfigPath(".././")
+	viper.AddConfigPath(".")
 
 	err := viper.ReadInConfig()
 	if err != nil {
