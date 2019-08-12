@@ -42,7 +42,20 @@ func (j JiraComment) AddComment() (string, error) {
 		return "", err
 	}
 
-	return resp.Status, nil
+	myResponse := responseTranslator(resp.StatusCode)
+	return myResponse, nil
+}
+
+func responseTranslator(resp int) string {
+	switch resp {
+	case 401:
+		myResponse := fmt.Sprintf("There was a problem, authentication failed, recieved: %v", resp)
+		return myResponse
+	case 404:
+		myResponse := fmt.Sprintf("There was a problem, check the ticket number, recieved: %v", resp)
+		return myResponse
+	}
+	return "Success!"
 }
 
 func createBodyMap(body string) map[string]string {

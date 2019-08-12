@@ -14,6 +14,26 @@ func TestCreateBodyMap(t *testing.T) {
 	}
 }
 
+func TestResponseTranslator(t *testing.T) {
+	responseCode := 401
+	response := responseTranslator(responseCode)
+	if response != "There was a problem, authentication failed, recieved: 401" {
+		t.Errorf("Wrong reponse received, got: %s", response)
+	}
+
+	responseCode = 404
+	response = responseTranslator(responseCode)
+	if response != "There was a problem, check the ticket number, recieved: 404" {
+		t.Errorf("Wrong reponse received, got: %s", response)
+	}
+
+	responseCode = 201
+	response = responseTranslator(responseCode)
+	if response != "Success!" {
+		t.Errorf("Wrong reponse received, got: %s", response)
+	}
+}
+
 func TestNewJiraComment(t *testing.T) {
 	body := "test"
 	ticket := "1234"
