@@ -7,11 +7,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var jiraTopic string       //comment
-var jiraAction string      //add
-var jiraTicket string      //1234
-var jiraCommentText string //holds comment text
-
 func init() {
 
 }
